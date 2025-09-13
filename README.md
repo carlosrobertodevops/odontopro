@@ -1,6 +1,29 @@
 
 # odontopro
 
+# OdontoPRO — Web (Next.js) + API (NestJS) + Prisma + Observabilidade
+
+Mono-repo com:
+- **Web**: Next.js (App Router), Tailwind, shadcn, Stripe, métricas Prometheus em `/api/metrics`, tracing OTel.
+- **API**: NestJS + Prisma, Swagger `/docs`, métricas Prometheus em `/metrics`, tracing OTel.
+- **DB**: PostgreSQL (local via Compose; prod via Supabase ou Postgres próprio).
+- **Observabilidade**: OpenTelemetry Collector → Tempo (traces) + Prometheus (métricas) + Grafana.
+
+## Como subir (DEV)
+
+---
+```bash
+docker compose -f docker-compose.local.yml up -d --build
+# Web: http://localhost:3000
+# API: http://localhost:4000/docs
+# DB Adminer: http://localhost:8080
+# Prometheus: http://localhost:9090
+# Grafana: http://localhost:3001 (admin/admin)
+
+
+---
+```
+---
 ```
 odontopro/
 ├─ prisma/
@@ -67,7 +90,12 @@ odontopro/
 ├─ .env.coolify                           # Produção (Supabase OU Postgres próprio, Stripe, OTEL_*)
 ├─ .dockerignore
 └─ .gitignore
-
 ```
 
+---
+```
+---
 
+
+```
+---

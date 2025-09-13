@@ -1,16 +1,17 @@
+version: "3.9"
+
 services:
   migrate:
     build: { context: ., dockerfile: Dockerfile, target: deps }
     env_file: [.env.coolify]
     command: >
       sh -lc '
-        echo "[migrate] aguardando DB...";
         for i in $(seq 1 60); do
           npx prisma migrate deploy && exit 0;
-          echo "[migrate] DB indisponível, tentando em 5s... ($i/60)";
+          echo "[migrate] aguardando DB... ($i/60)";
           sleep 5;
         done;
-        echo "[migrate] falhou após várias tentativas"; exit 1;
+        exit 1;
       '
     restart: "no"
 
@@ -26,7 +27,7 @@ services:
     restart: unless-stopped
 
   api:
-    build: { context: ./api, dockerfile: Dockerfile, target: runner }
+    build: { context: ., dockerfile: ./api/Dockerfile, target: runner }
     env_file: [.env.coolify]
     environment: { NODE_ENV: production }
     expose: ["4000"]
@@ -35,6 +36,7 @@ services:
       otel-collector: { condition: service_started }
     restart: unless-stopped
 
+  # Observabilidade (interno)
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.101.0
     command: ["--config=/etc/otelcol/otel-collector.yaml"]

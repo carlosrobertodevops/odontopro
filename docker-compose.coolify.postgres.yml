@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   db:
     image: postgres:16-alpine
@@ -7,8 +9,7 @@ services:
       POSTGRES_DB: odontopro
     volumes:
       - pgdata:/var/lib/postgresql/data
-    expose:
-      - "5432"
+    expose: ["5432"]
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d odontopro"]
       interval: 5s
@@ -17,15 +18,10 @@ services:
     restart: unless-stopped
 
   migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: deps
-    env_file:
-      - .env.coolify
+    build: { context: ., dockerfile: Dockerfile, target: deps }
+    env_file: [.env.coolify]
     depends_on:
-      db:
-        condition: service_healthy
+      db: { condition: service_healthy }
     command: >
       sh -lc '
         echo "[migrate] aguardando DB...";
@@ -39,39 +35,23 @@ services:
     restart: "no"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: runner
-    env_file:
-      - .env.coolify
-    environment:
-      NODE_ENV: production
-      PORT: 3000
-      HOSTNAME: 0.0.0.0
+    build: { context: ., dockerfile: Dockerfile, target: runner }
+    env_file: [.env.coolify]
+    environment: { NODE_ENV: production, PORT: 3000, HOSTNAME: 0.0.0.0 }
     depends_on:
-      migrate:
-        condition: service_completed_successfully
-      api:
-        condition: service_started
-    expose:
-      - "3000"
+      migrate: { condition: service_completed_successfully }
+      api: { condition: service_started }
+    expose: ["3000"]
     restart: unless-stopped
 
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      target: runner
-    env_file:
-      - .env.coolify
-    environment:
-      NODE_ENV: production
-    expose:
-      - "4000"
+    # >>>> contexto NA RAIZ e Dockerfile dentro de ./api
+    build: { context: ., dockerfile: ./api/Dockerfile, target: runner }
+    env_file: [.env.coolify]
+    environment: { NODE_ENV: production }
+    expose: ["4000"]
     depends_on:
-      migrate:
-        condition: service_completed_successfully
+      migrate: { condition: service_completed_successfully }
     restart: unless-stopped
 
 volumes:

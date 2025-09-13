@@ -6,21 +6,6 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(panel)/dashboard/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(panel)/dashboard/layout.js"
-    ],
-    "/(panel)/dashboard/profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(panel)/dashboard/profile/page.js"
-    ],
-    "/(panel)/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(panel)/dashboard/page.js"
-    ],
     "/(public)/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -30,6 +15,16 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/api/auth/[...nextauth]/route.js"
+    ],
+    "/(panel)/dashboard/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(panel)/dashboard/layout.js"
+    ],
+    "/(panel)/dashboard/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(panel)/dashboard/page.js"
     ],
     "/api/clinic/appointments/route": [
       "static/chunks/webpack.js",
@@ -41,21 +36,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(panel)/dashboard/services/page.js"
     ],
+    "/(panel)/dashboard/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(panel)/dashboard/profile/page.js"
+    ],
+    "/api/image/upload/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/image/upload/route.js"
+    ],
     "/(panel)/dashboard/plans/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(panel)/dashboard/plans/page.js"
     ],
-    "/(public)/clinica/[id]/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/(public)/clinica/[id]/page.css",
-      "static/chunks/app/(public)/clinica/[id]/page.js"
-    ],
-    "/api/schedule/get-appointments/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/schedule/get-appointments/route.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

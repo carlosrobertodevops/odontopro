@@ -1,9 +1,11 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/image/upload/route": "app/api/image/upload/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/api/clinic/appointments/route": "app/api/clinic/appointments/route.js",
   "/(public)/page": "app/(public)/page.js",
-  "/(public)/clinica/[id]/page": "app/(public)/clinica/[id]/page.js",
   "/(panel)/dashboard/page": "app/(panel)/dashboard/page.js",
+  "/(panel)/dashboard/services/page": "app/(panel)/dashboard/services/page.js",
   "/(panel)/dashboard/profile/page": "app/(panel)/dashboard/profile/page.js",
-  "/(panel)/dashboard/plans/page": "app/(panel)/dashboard/plans/page.js",
-  "/(panel)/dashboard/services/page": "app/(panel)/dashboard/services/page.js"
+  "/(panel)/dashboard/plans/page": "app/(panel)/dashboard/plans/page.js"
 }
