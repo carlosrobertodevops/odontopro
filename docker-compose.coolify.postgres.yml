@@ -1,4 +1,23 @@
+version: "3.9"
+
 services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: odontopro
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d odontopro"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
   migrate:
     build:
       context: .
@@ -6,6 +25,9 @@ services:
       target: deps
     env_file:
       - .env.coolify
+    depends_on:
+      db:
+        condition: service_healthy
     command: >
       sh -lc '
         echo "[migrate] aguardando DB...";
@@ -53,3 +75,6 @@ services:
       migrate:
         condition: service_completed_successfully
     restart: unless-stopped
+
+volumes:
+  pgdata:

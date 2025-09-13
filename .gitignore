@@ -1,5 +1,6 @@
 .env
 .env.local
 .env.local.docker
+.env.coolify
 .next-cache/
 node_modules/

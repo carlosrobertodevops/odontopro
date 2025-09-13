@@ -1,33 +1,73 @@
 
 # odontopro
 
-.
+```
+odontopro/
 ├─ prisma/
-│  └─ schema.prisma
-├─ src/                  # (seu Next.js)
-│  └─ app/...
-├─ api/                  # ⬅️ novo serviço NestJS
+│  ├─ schema.prisma                       # Modelo único do banco (compartilhado por Web e API)
+│  └─ migrations/ …                       # (se houver) migrações do Prisma
+│
+├─ src/                                   # Next.js (App Router)
+│  ├─ app/
+│  │  ├─ layout.tsx                       # Importa ./globals.css e define <html/body>
+│  │  ├─ globals.css                      # Tailwind base + tokens shadcn
+│  │  ├─ api/
+│  │  │  └─ metrics/route.ts              # Métricas Prometheus do Web (GET /api/metrics)
+│  │  ├─ (public)/ …                      # Suas rotas/grupos existentes
+│  │  └─ page.tsx                         # (se existir) página inicial
+│  ├─ components/ …                       # Seus componentes (inclui ui/* — atenção ao case)
+│  ├─ lib/ …                              # Utils/SDKs do front
+│  ├─ providers/ …                        # React providers
+│  ├─ utils/ …                            # Helpers
+│  └─ types/ …                            # Tipos/DTOS front
+│
+├─ api/                                   # NestJS (API)
 │  ├─ src/
-│  │  ├─ main.ts
-│  │  ├─ app.module.ts
+│  │  ├─ main.ts                          # Bootstrap: CORS, Swagger, Métricas, inicia OTel
+│  │  ├─ app.module.ts                    # Módulo raiz: Config, Prisma, Health, Metrics
+│  │  ├─ swagger.ts                       # Setup do Swagger (UI /docs, JSON /docs-json)
+│  │  ├─ tracing.ts                       # OpenTelemetry SDK (OTLP → Collector)
+│  │  ├─ generate-swagger.ts              # Script p/ gerar dist/swagger.json sem HTTP
 │  │  ├─ prisma/
-│  │  │  ├─ prisma.module.ts
-│  │  │  └─ prisma.service.ts
-│  │  └─ health/
-│  │     ├─ health.module.ts
-│  │     └─ health.controller.ts
-│  ├─ package.json
+│  │  │  ├─ prisma.module.ts              # Prisma como módulo global
+│  │  │  └─ prisma.service.ts             # PrismaClient com lifecycle hooks
+│  │  ├─ health/
+│  │  │  ├─ health.module.ts
+│  │  │  └─ health.controller.ts          # GET /health | GET /health/db
+│  │  └─ metrics/
+│  │     ├─ metrics.module.ts
+│  │     ├─ metrics.service.ts            # Registry + histogram latência
+│  │     └─ metrics.interceptor.ts        # Mede latência por rota/status
+│  ├─ package.json                        # Nest deps (@nestjs/*, prisma, swagger, otel)
 │  ├─ tsconfig.json
 │  ├─ tsconfig.build.json
 │  ├─ nest-cli.json
-│  └─ Dockerfile
-├─ docker-compose.local.yml
-├─ docker-compose.coolify.yml
-├─ next.config.mjs (ou next.config.js)
-├─ tsconfig.json
-├─ tailwind.config.ts
-├─ postcss.config.js
-├─ .env.local
-└─ .env.coolify
+│  └─ Dockerfile                          # Docker multi-stage da API (deps → builder → runner)
+│
+├─ observability/
+│  ├─ otel-collector.yaml                 # Collector: recebe OTLP e exporta p/ Tempo
+│  ├─ tempo.yaml                          # Tempo: backend de traces (armazenamento local)
+│  ├─ prometheus.yml                      # Prometheus: scrape web:/api/metrics e api:/metrics
+│  └─ grafana/
+│     └─ datasources/datasources.yml      # Provisiona datasources Prometheus e Tempo
+│
+├─ Dockerfile                             # Docker multi-stage do Web (deps → builder → runner)
+├─ docker-compose.local.yml               # Ambiente DEV completo (db, migrate, web, api, adminer,
+│                                         # collector, tempo, prometheus, grafana, stripe-listener)
+├─ docker-compose.coolify.yml             # Produção no Coolify (web, api, migrate, observabilidade)
+├─ docker-compose.coolify.postgres.yml    # Alternativa: Coolify com Postgres próprio (sem Supabase)
+│
+├─ next.config.mjs                        # Next config (standalone + images.domains)
+├─ tsconfig.json                          # TS root (alias @ → src, moduleResolution: Bundler)
+├─ tailwind.config.ts                     # Escopo de scan (src/app, components, lib, providers, utils)
+├─ postcss.config.js                      # Tailwind + autoprefixer
+├─ instrumentation.ts                     # (root) OTel SDK para o Web (Next server)
+│
+├─ .env.local                             # DEV local (DB local, Stripe test, API_PORT, OTEL_*)
+├─ .env.coolify                           # Produção (Supabase OU Postgres próprio, Stripe, OTEL_*)
+├─ .dockerignore
+└─ .gitignore
+
+```
 
 
