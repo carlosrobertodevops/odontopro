@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "README.md"
+      - "observability/**"
+      - ".github/workflows/docker.yml"
+      - ".github/workflows/deploy-coolify.yml"
+      - ".github/workflows/swagger-artifact.yml"
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  web-unit:
+    name: Web • Unit (Jest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            api/package-lock.json
+      - name: Install deps (root)
+        run: npm ci
+      - name: Prisma generate (optional)
+        run: npx prisma generate --schema=./prisma/schema.prisma
+      - name: Run Web unit tests
+        run: npx jest --config jest.config.js --runInBand
+
+  api-tests:
+    name: API • Unit + E2E (Jest)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: api
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+      - name: Install deps (api)
+        run: npm ci
+      - name: Prisma generate (api)
+        run: npx prisma generate --schema=../prisma/schema.prisma
+      - name: Unit tests
+        run: npm run test:unit
+      - name: E2E tests (no DB)
+        env:
+          SKIP_PRISMA_CONNECT: "1"
+          SKIP_METRICS: "1"
+          OPENAPI_ONLY: "1"
+        run: npm run test:e2e
+      - name: Coverage
+        run: npm run test:cov
+
+  web-e2e:
+    name: Web • E2E (Playwright)
+    runs-on: ubuntu-latest
+    needs: web-unit
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install deps (root)
+        run: npm ci
+      - name: Build Next
+        run: npm run build
+      - name: Start Next (background)
+        run: |
+          nohup npm start >/dev/null 2>&1 &
+          npx wait-on http://localhost:3000
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright e2e
+        run: npx playwright test --config e2e/playwright.config.ts

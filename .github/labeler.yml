@@ -1,0 +1,15 @@
+web:
+- "src/**"
+- "next.config.*"
+- "tailwind.config.*"
+
+api:
+- "api/**"
+
+observability:
+- "observability/**"
+
+infra:
+- "Dockerfile"
+- "api/Dockerfile"
+- "docker-compose.*.yml"

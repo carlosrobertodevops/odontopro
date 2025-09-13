@@ -26,6 +26,11 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(panel)/dashboard/page.js"
     ],
+    "/(panel)/dashboard/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(panel)/dashboard/profile/page.js"
+    ],
     "/api/clinic/appointments/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -35,16 +40,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(panel)/dashboard/services/page.js"
-    ],
-    "/(panel)/dashboard/profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(panel)/dashboard/profile/page.js"
-    ],
-    "/api/image/upload/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/image/upload/route.js"
     ],
     "/(panel)/dashboard/plans/page": [
       "static/chunks/webpack.js",
