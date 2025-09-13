@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: deps
+    # Use EITHER env_file OR secrets set in Coolify's UI
+    env_file:
+      - .env.coolify
+    command: >
+      sh -lc '
+        echo "[migrate] aguardando DB...";
+        for i in $(seq 1 60); do
+          npx prisma migrate deploy && exit 0;
+          echo "[migrate] DB indisponível, tentando de novo em 5s... ($i/60)";
+          sleep 5;
+        done;
+        echo "[migrate] falhou após várias tentativas";
+        exit 1
+      '
+    restart: "no"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    # Use EITHER env_file OR secrets set in Coolify's UI
+    env_file:
+      - .env.coolify
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    # No Coolify o proxy/ingress cuida da rede. Exponha a porta sem mapear.
+    expose:
+      - "3000"
+    restart: unless-stopped
