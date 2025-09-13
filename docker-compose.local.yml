@@ -7,7 +7,8 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: odontopro
     ports: ["5432:5432"]
-    volumes: [pgdata:/var/lib/postgresql/data]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d odontopro"]
       interval: 3s
@@ -61,6 +62,7 @@ services:
     restart: unless-stopped
 
   api:
+    # contexto na raiz e Dockerfile dentro de ./api
     build: { context: ., dockerfile: ./api/Dockerfile, target: deps }
     container_name: odontopro-api
     env_file: [.env.local]
@@ -84,11 +86,14 @@ services:
 
   adminer:
     image: adminer:4
+    container_name: odontopro-adminer
     ports: ["8080:8080"]
-    depends_on: { db: { condition: service_healthy } }
+    depends_on:
+      db: { condition: service_healthy }
 
   stripe-listener:
     image: stripe/stripe-cli:latest
+    container_name: odontopro-stripe-listener
     env_file: [.env.local]
     command: >
       sh -lc "
@@ -100,23 +105,32 @@ services:
 
   otel-collector:
     image: otel/opentelemetry-collector-contrib:0.101.0
+    container_name: odontopro-otel
     command: ["--config=/etc/otelcol/otel-collector.yaml"]
     volumes:
       - ./observability/otel-collector.yaml:/etc/otelcol/otel-collector.yaml:ro
-    ports: ["4317:4317", "4318:4318"]
+    # 4317 = gRPC; 4318 = HTTP/OTLP; 13133 = health_check; 55679 = zpages
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "13133:13133"
+      - "55679:55679"
     restart: unless-stopped
 
   tempo:
     image: grafana/tempo:2.6.1
+    container_name: odontopro-tempo
     volumes:
       - tempo-data:/var/tempo
       - ./observability/tempo.yaml:/etc/tempo.yaml:ro
     command: ["-config.file=/etc/tempo.yaml"]
+    # UI própria não existe; expose métricas/ready e uso via Grafana
     ports: ["3200:3200"]
     restart: unless-stopped
 
   prometheus:
     image: prom/prometheus:v2.55.1
+    container_name: odontopro-prometheus
     volumes:
       - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prom-data:/prometheus
@@ -125,13 +139,15 @@ services:
 
   grafana:
     image: grafana/grafana:11.2.0
+    container_name: odontopro-grafana
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
       - grafana-data:/var/lib/grafana
       - ./observability/grafana/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
-    ports: ["3001:3001"]
+    # >>> Mapeie porta EXTERNA 3001 -> porta INTERNA 3000 do Grafana
+    ports: ["3001:3000"]
     restart: unless-stopped
 
 volumes:

@@ -1,9 +1,9 @@
 {
   "node": {
-    "00f4c402adb1beaf38d0edcc25e040e25d4f575458": {
+    "00f3ca1203a358cf0c3e297d2e1912f662f8c9b2fd": {
       "workers": {
         "app/(public)/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2F_data-access%2Fget-professionals.ts%22%2C%5B%7B%22id%22%3A%2200f4c402adb1beaf38d0edcc25e040e25d4f575458%22%2C%22exportedName%22%3A%22getProfessionals%22%2C%22filename%22%3A%22app%2F(public)%2F_data-access%2Fget-professionals.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2F_data-access%2Fget-professionals.ts%22%2C%5B%7B%22id%22%3A%2200f3ca1203a358cf0c3e297d2e1912f662f8c9b2fd%22%2C%22exportedName%22%3A%22getProfessionals%22%2C%22filename%22%3A%22app%2F(public)%2F_data-access%2Fget-professionals.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
@@ -13,10 +13,10 @@
       "filename": "app/(public)/_data-access/get-professionals.ts",
       "exportedName": "getProfessionals"
     },
-    "408c3a165cb1a9d6710aba8e0bf603627b29687f20": {
+    "40cb43421a9fd36f178ecb8dc64044a2bd174d5bc0": {
       "workers": {
         "app/(public)/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2F_actions%2Flogin.ts%22%2C%5B%7B%22id%22%3A%22408c3a165cb1a9d6710aba8e0bf603627b29687f20%22%2C%22exportedName%22%3A%22handleRegister%22%2C%22filename%22%3A%22app%2F(public)%2F_actions%2Flogin.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2F_actions%2Flogin.ts%22%2C%5B%7B%22id%22%3A%2240cb43421a9fd36f178ecb8dc64044a2bd174d5bc0%22%2C%22exportedName%22%3A%22handleRegister%22%2C%22filename%22%3A%22app%2F(public)%2F_actions%2Flogin.ts%22%7D%5D%5D%5D&__client_imported__=true!",
           "async": false
         }
       },
@@ -26,10 +26,270 @@
       "filename": "app/(public)/_actions/login.ts",
       "exportedName": "handleRegister"
     },
-    "4092b664ce85c99fd1a0fe63c71f673e5a1ba380fb": {
+    "40631b54f864dabb65881aa2ecf34766ca2baa12f8": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%2240631b54f864dabb65881aa2ecf34766ca2baa12f8%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%22407050d56c5a411b26f58396ad9ff4a349c0bd5b15%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240050252f4982cf7c2e539c3da9a23c3f477ab9b3f%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/_data-access/get-reminders.ts",
+      "exportedName": "getReminders"
+    },
+    "407050d56c5a411b26f58396ad9ff4a349c0bd5b15": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%2240631b54f864dabb65881aa2ecf34766ca2baa12f8%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%22407050d56c5a411b26f58396ad9ff4a349c0bd5b15%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240050252f4982cf7c2e539c3da9a23c3f477ab9b3f%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/_data-access/get-times-clinic.ts",
+      "exportedName": "getTimesClinic"
+    },
+    "40050252f4982cf7c2e539c3da9a23c3f477ab9b3f": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%2240631b54f864dabb65881aa2ecf34766ca2baa12f8%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%22407050d56c5a411b26f58396ad9ff4a349c0bd5b15%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240050252f4982cf7c2e539c3da9a23c3f477ab9b3f%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "utils/permissions/checkSubscription.ts",
+      "exportedName": "checkSubscription"
+    },
+    "405554d7a7ff20ed7bc2549fd6e06491fab0b52727": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%22405554d7a7ff20ed7bc2549fd6e06491fab0b52727%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402aa38177598f2fdc7a6963a2d84916019c4602e2%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%2240c7de29b5d94781440c91baeec593667b830acff8%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/cancel-appointment.ts",
+      "exportedName": "cancelAppointment"
+    },
+    "402aa38177598f2fdc7a6963a2d84916019c4602e2": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%22405554d7a7ff20ed7bc2549fd6e06491fab0b52727%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402aa38177598f2fdc7a6963a2d84916019c4602e2%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%2240c7de29b5d94781440c91baeec593667b830acff8%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/delete-reminder.ts",
+      "exportedName": "deleteReminder"
+    },
+    "40c7de29b5d94781440c91baeec593667b830acff8": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%22405554d7a7ff20ed7bc2549fd6e06491fab0b52727%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402aa38177598f2fdc7a6963a2d84916019c4602e2%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%2240c7de29b5d94781440c91baeec593667b830acff8%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/create-reminder.ts",
+      "exportedName": "createReminder"
+    },
+    "4058af66fefc56fb99a72a5b57956248f91257bd6d": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%2C%5B%7B%22id%22%3A%224058af66fefc56fb99a72a5b57956248f91257bd6d%22%2C%22exportedName%22%3A%22getAllServices%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanPermission.ts%22%2C%5B%7B%22id%22%3A%224031a62c93755f49163f253992eee50358d36f0086%22%2C%22exportedName%22%3A%22canPermission%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanPermission.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanCreateService.ts%22%2C%5B%7B%22id%22%3A%226067e111b31969f3766626e4e803a3745cad12b5c0%22%2C%22exportedName%22%3A%22canCreateService%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanCreateService.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2Fget-plans.ts%22%2C%5B%7B%22id%22%3A%224034ea42c0ba3cd2d795268e70d50395cdc4843209%22%2C%22exportedName%22%3A%22getPlan%22%2C%22filename%22%3A%22utils%2Fpermissions%2Fget-plans.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%2C%5B%7B%22id%22%3A%22408a4bb6654087d628c7aa46bbb86e7d01f75161f5%22%2C%22exportedName%22%3A%22checkSubscriptionExpired%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/services/_data-access/get-all-services.ts",
+      "exportedName": "getAllServices"
+    },
+    "4031a62c93755f49163f253992eee50358d36f0086": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%2C%5B%7B%22id%22%3A%224058af66fefc56fb99a72a5b57956248f91257bd6d%22%2C%22exportedName%22%3A%22getAllServices%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanPermission.ts%22%2C%5B%7B%22id%22%3A%224031a62c93755f49163f253992eee50358d36f0086%22%2C%22exportedName%22%3A%22canPermission%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanPermission.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanCreateService.ts%22%2C%5B%7B%22id%22%3A%226067e111b31969f3766626e4e803a3745cad12b5c0%22%2C%22exportedName%22%3A%22canCreateService%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanCreateService.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2Fget-plans.ts%22%2C%5B%7B%22id%22%3A%224034ea42c0ba3cd2d795268e70d50395cdc4843209%22%2C%22exportedName%22%3A%22getPlan%22%2C%22filename%22%3A%22utils%2Fpermissions%2Fget-plans.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%2C%5B%7B%22id%22%3A%22408a4bb6654087d628c7aa46bbb86e7d01f75161f5%22%2C%22exportedName%22%3A%22checkSubscriptionExpired%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "rsc"
+      },
+      "filename": "utils/permissions/canPermission.ts",
+      "exportedName": "canPermission"
+    },
+    "6067e111b31969f3766626e4e803a3745cad12b5c0": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%2C%5B%7B%22id%22%3A%224058af66fefc56fb99a72a5b57956248f91257bd6d%22%2C%22exportedName%22%3A%22getAllServices%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanPermission.ts%22%2C%5B%7B%22id%22%3A%224031a62c93755f49163f253992eee50358d36f0086%22%2C%22exportedName%22%3A%22canPermission%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanPermission.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanCreateService.ts%22%2C%5B%7B%22id%22%3A%226067e111b31969f3766626e4e803a3745cad12b5c0%22%2C%22exportedName%22%3A%22canCreateService%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanCreateService.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2Fget-plans.ts%22%2C%5B%7B%22id%22%3A%224034ea42c0ba3cd2d795268e70d50395cdc4843209%22%2C%22exportedName%22%3A%22getPlan%22%2C%22filename%22%3A%22utils%2Fpermissions%2Fget-plans.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%2C%5B%7B%22id%22%3A%22408a4bb6654087d628c7aa46bbb86e7d01f75161f5%22%2C%22exportedName%22%3A%22checkSubscriptionExpired%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "rsc"
+      },
+      "filename": "utils/permissions/canCreateService.ts",
+      "exportedName": "canCreateService"
+    },
+    "4034ea42c0ba3cd2d795268e70d50395cdc4843209": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%2C%5B%7B%22id%22%3A%224058af66fefc56fb99a72a5b57956248f91257bd6d%22%2C%22exportedName%22%3A%22getAllServices%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanPermission.ts%22%2C%5B%7B%22id%22%3A%224031a62c93755f49163f253992eee50358d36f0086%22%2C%22exportedName%22%3A%22canPermission%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanPermission.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanCreateService.ts%22%2C%5B%7B%22id%22%3A%226067e111b31969f3766626e4e803a3745cad12b5c0%22%2C%22exportedName%22%3A%22canCreateService%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanCreateService.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2Fget-plans.ts%22%2C%5B%7B%22id%22%3A%224034ea42c0ba3cd2d795268e70d50395cdc4843209%22%2C%22exportedName%22%3A%22getPlan%22%2C%22filename%22%3A%22utils%2Fpermissions%2Fget-plans.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%2C%5B%7B%22id%22%3A%22408a4bb6654087d628c7aa46bbb86e7d01f75161f5%22%2C%22exportedName%22%3A%22checkSubscriptionExpired%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "rsc"
+      },
+      "filename": "utils/permissions/get-plans.ts",
+      "exportedName": "getPlan"
+    },
+    "408a4bb6654087d628c7aa46bbb86e7d01f75161f5": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%2C%5B%7B%22id%22%3A%224058af66fefc56fb99a72a5b57956248f91257bd6d%22%2C%22exportedName%22%3A%22getAllServices%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_data-access%2Fget-all-services.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanPermission.ts%22%2C%5B%7B%22id%22%3A%224031a62c93755f49163f253992eee50358d36f0086%22%2C%22exportedName%22%3A%22canPermission%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanPermission.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcanCreateService.ts%22%2C%5B%7B%22id%22%3A%226067e111b31969f3766626e4e803a3745cad12b5c0%22%2C%22exportedName%22%3A%22canCreateService%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcanCreateService.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2Fget-plans.ts%22%2C%5B%7B%22id%22%3A%224034ea42c0ba3cd2d795268e70d50395cdc4843209%22%2C%22exportedName%22%3A%22getPlan%22%2C%22filename%22%3A%22utils%2Fpermissions%2Fget-plans.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%2C%5B%7B%22id%22%3A%22408a4bb6654087d628c7aa46bbb86e7d01f75161f5%22%2C%22exportedName%22%3A%22checkSubscriptionExpired%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscriptionExpired.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "rsc"
+      },
+      "filename": "utils/permissions/checkSubscriptionExpired.ts",
+      "exportedName": "checkSubscriptionExpired"
+    },
+    "403b9e10815bb38ed820225c63d0c5a41778053933": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%2C%5B%7B%22id%22%3A%22403b9e10815bb38ed820225c63d0c5a41778053933%22%2C%22exportedName%22%3A%22createNewService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%2C%5B%7B%22id%22%3A%2240ff1d3a54f4de79c53dab303600fa113029ce713d%22%2C%22exportedName%22%3A%22updateService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%2C%5B%7B%22id%22%3A%224050d9c766e911a93ae3898fb04d4c194e65b16170%22%2C%22exportedName%22%3A%22deleteService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/services/_actions/create-service.ts",
+      "exportedName": "createNewService"
+    },
+    "40ff1d3a54f4de79c53dab303600fa113029ce713d": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%2C%5B%7B%22id%22%3A%22403b9e10815bb38ed820225c63d0c5a41778053933%22%2C%22exportedName%22%3A%22createNewService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%2C%5B%7B%22id%22%3A%2240ff1d3a54f4de79c53dab303600fa113029ce713d%22%2C%22exportedName%22%3A%22updateService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%2C%5B%7B%22id%22%3A%224050d9c766e911a93ae3898fb04d4c194e65b16170%22%2C%22exportedName%22%3A%22deleteService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/services/_actions/update-service.ts",
+      "exportedName": "updateService"
+    },
+    "4050d9c766e911a93ae3898fb04d4c194e65b16170": {
+      "workers": {
+        "app/(panel)/dashboard/services/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%2C%5B%7B%22id%22%3A%22403b9e10815bb38ed820225c63d0c5a41778053933%22%2C%22exportedName%22%3A%22createNewService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fcreate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%2C%5B%7B%22id%22%3A%2240ff1d3a54f4de79c53dab303600fa113029ce713d%22%2C%22exportedName%22%3A%22updateService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fupdate-service.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%2C%5B%7B%22id%22%3A%224050d9c766e911a93ae3898fb04d4c194e65b16170%22%2C%22exportedName%22%3A%22deleteService%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fservices%2F_actions%2Fdelete-service.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/services/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/services/_actions/delete-service.ts",
+      "exportedName": "deleteService"
+    },
+    "40d23425b27c83f501f4993416076dfb1ce83fd36e": {
+      "workers": {
+        "app/(panel)/dashboard/plans/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Futils%2Fget-subscription.ts%22%2C%5B%7B%22id%22%3A%2240d23425b27c83f501f4993416076dfb1ce83fd36e%22%2C%22exportedName%22%3A%22getSubscription%22%2C%22filename%22%3A%22utils%2Fget-subscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/plans/page": "rsc"
+      },
+      "filename": "utils/get-subscription.ts",
+      "exportedName": "getSubscription"
+    },
+    "40a4076e369deb897aeb339725c0803d7c881a7405": {
+      "workers": {
+        "app/(panel)/dashboard/plans/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-subscription.ts%22%2C%5B%7B%22id%22%3A%2240a4076e369deb897aeb339725c0803d7c881a7405%22%2C%22exportedName%22%3A%22createSubscription%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-subscription.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-portal-customer.ts%22%2C%5B%7B%22id%22%3A%2200a433cea9a0ea391114f2b691fb23c47ea6530c1b%22%2C%22exportedName%22%3A%22createPortalCustomer%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-portal-customer.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/plans/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/plans/_actions/create-subscription.ts",
+      "exportedName": "createSubscription"
+    },
+    "00a433cea9a0ea391114f2b691fb23c47ea6530c1b": {
+      "workers": {
+        "app/(panel)/dashboard/plans/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-subscription.ts%22%2C%5B%7B%22id%22%3A%2240a4076e369deb897aeb339725c0803d7c881a7405%22%2C%22exportedName%22%3A%22createSubscription%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-subscription.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-portal-customer.ts%22%2C%5B%7B%22id%22%3A%2200a433cea9a0ea391114f2b691fb23c47ea6530c1b%22%2C%22exportedName%22%3A%22createPortalCustomer%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fplans%2F_actions%2Fcreate-portal-customer.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/plans/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/plans/_actions/create-portal-customer.ts",
+      "exportedName": "createPortalCustomer"
+    },
+    "409525b93905669345a615a9f4c50866eff7f9a1f0": {
+      "workers": {
+        "app/(panel)/dashboard/profile/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fprofile%2F_data-access%2Fget-info-user.ts%22%2C%5B%7B%22id%22%3A%22409525b93905669345a615a9f4c50866eff7f9a1f0%22%2C%22exportedName%22%3A%22getUserData%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fprofile%2F_data-access%2Fget-info-user.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/profile/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/profile/_data-access/get-info-user.ts",
+      "exportedName": "getUserData"
+    },
+    "4083b57bb4feae7190b0a45c965356b74fa5398ac1": {
+      "workers": {
+        "app/(panel)/dashboard/profile/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-profile.ts%22%2C%5B%7B%22id%22%3A%224083b57bb4feae7190b0a45c965356b74fa5398ac1%22%2C%22exportedName%22%3A%22updateProfile%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-profile.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-avatar.ts%22%2C%5B%7B%22id%22%3A%22405e3a70a975e594800cf747c799ef163fdd3f3bbd%22%2C%22exportedName%22%3A%22updateProfileAvatar%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-avatar.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/profile/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/profile/_actions/update-profile.ts",
+      "exportedName": "updateProfile"
+    },
+    "405e3a70a975e594800cf747c799ef163fdd3f3bbd": {
+      "workers": {
+        "app/(panel)/dashboard/profile/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-profile.ts%22%2C%5B%7B%22id%22%3A%224083b57bb4feae7190b0a45c965356b74fa5398ac1%22%2C%22exportedName%22%3A%22updateProfile%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-profile.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-avatar.ts%22%2C%5B%7B%22id%22%3A%22405e3a70a975e594800cf747c799ef163fdd3f3bbd%22%2C%22exportedName%22%3A%22updateProfileAvatar%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2Fprofile%2F_actions%2Fupdate-avatar.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/profile/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/profile/_actions/update-avatar.ts",
+      "exportedName": "updateProfileAvatar"
+    },
+    "40f5cff7449a1abbba08e238873bd15cab074aa782": {
       "workers": {
         "app/(public)/clinica/[id]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_data-access%2Fget-info-schedule.ts%22%2C%5B%7B%22id%22%3A%224092b664ce85c99fd1a0fe63c71f673e5a1ba380fb%22%2C%22exportedName%22%3A%22getInfoSchedule%22%2C%22filename%22%3A%22app%2F(public)%2Fclinica%2F%5Bid%5D%2F_data-access%2Fget-info-schedule.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_data-access%2Fget-info-schedule.ts%22%2C%5B%7B%22id%22%3A%2240f5cff7449a1abbba08e238873bd15cab074aa782%22%2C%22exportedName%22%3A%22getInfoSchedule%22%2C%22filename%22%3A%22app%2F(public)%2Fclinica%2F%5Bid%5D%2F_data-access%2Fget-info-schedule.ts%22%7D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
@@ -39,10 +299,10 @@
       "filename": "app/(public)/clinica/[id]/_data-access/get-info-schedule.ts",
       "exportedName": "getInfoSchedule"
     },
-    "403e972eeb2949d701b7debaa556108962e4ad8015": {
+    "40cb96adeef9f4072c9a39d1419a66d21906c006fd": {
       "workers": {
         "app/(public)/clinica/[id]/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_actions%2Fcreate-appointment.ts%22%2C%5B%7B%22id%22%3A%22403e972eeb2949d701b7debaa556108962e4ad8015%22%2C%22exportedName%22%3A%22createNewAppointment%22%2C%22filename%22%3A%22app%2F(public)%2Fclinica%2F%5Bid%5D%2F_actions%2Fcreate-appointment.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_actions%2Fcreate-appointment.ts%22%2C%5B%7B%22id%22%3A%2240cb96adeef9f4072c9a39d1419a66d21906c006fd%22%2C%22exportedName%22%3A%22createNewAppointment%22%2C%22filename%22%3A%22app%2F(public)%2Fclinica%2F%5Bid%5D%2F_actions%2Fcreate-appointment.ts%22%7D%5D%5D%5D&__client_imported__=true!",
           "async": false
         }
       },
@@ -54,5 +314,5 @@
     }
   },
   "edge": {},
-  "encryptionKey": "FVRVvVefPMmUkBpHPxVdelbwxSVaIHG9OQ8VHnHDjKU="
+  "encryptionKey": "LntTHPHqCNCF/VVk9pAB4v6Md6hcg129uV7SDST8f8s="
 }
