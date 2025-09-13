@@ -1,11 +1,9 @@
+version: "3.9"
+
 services:
   migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: deps
-    env_file:
-      - .env.coolify
+    build: { context: ., dockerfile: Dockerfile, target: deps }
+    env_file: [.env.coolify]
     command: >
       sh -lc '
         echo "[migrate] aguardando DB...";
@@ -19,37 +17,63 @@ services:
     restart: "no"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: runner
-    env_file:
-      - .env.coolify
-    environment:
-      NODE_ENV: production
-      PORT: 3000
-      HOSTNAME: 0.0.0.0
+    build: { context: ., dockerfile: Dockerfile, target: runner }
+    env_file: [.env.coolify]
+    environment: { NODE_ENV: production, PORT: 3000, HOSTNAME: 0.0.0.0 }
     depends_on:
-      migrate:
-        condition: service_completed_successfully
-      api:
-        condition: service_started
-    expose:
-      - "3000"
+      migrate: { condition: service_completed_successfully }
+      api: { condition: service_started }
+      otel-collector: { condition: service_started }
+    expose: ["3000"]
     restart: unless-stopped
 
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      target: runner
-    env_file:
-      - .env.coolify
-    environment:
-      NODE_ENV: production
-    expose:
-      - "4000"
+    build: { context: ./api, dockerfile: Dockerfile, target: runner }
+    env_file: [.env.coolify]
+    environment: { NODE_ENV: production }
+    expose: ["4000"]
     depends_on:
-      migrate:
-        condition: service_completed_successfully
+      migrate: { condition: service_completed_successfully }
+      otel-collector: { condition: service_started }
     restart: unless-stopped
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.101.0
+    command: ["--config=/etc/otelcol/otel-collector.yaml"]
+    volumes:
+      - ./observability/otel-collector.yaml:/etc/otelcol/otel-collector.yaml:ro
+    expose: ["4317", "4318"]
+    restart: unless-stopped
+
+  tempo:
+    image: grafana/tempo:2.6.1
+    volumes:
+      - tempo-data:/var/tempo
+      - ./observability/tempo.yaml:/etc/tempo.yaml:ro
+    command: ["-config.file=/etc/tempo.yaml"]
+    expose: ["3200"]
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prom-data:/prometheus
+    expose: ["9090"]
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./observability/grafana/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
+    expose: ["3001"]
+    restart: unless-stopped
+
+volumes:
+  grafana-data:
+  prom-data:
+  tempo-data:

@@ -10,7 +10,8 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "generate:prisma": "prisma generate --schema=../prisma/schema.prisma",
-    "openapi:json": "ts-node src/generate-swagger.ts"
+    "openapi:json": "prisma generate --schema=../prisma/schema.prisma && node -r ts-node/register -r tsconfig-paths/register src/generate-swagger.ts",
+    "postinstall": "prisma generate --schema=../prisma/schema.prisma"
   },
   "dependencies": {
     "@nestjs/common": "^10.4.7",
@@ -32,7 +33,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@nestjs/cli": "^11.0.10",
+    "@nestjs/cli": "^10.4.5",
     "@nestjs/schematics": "^10.1.2",
     "@nestjs/testing": "^10.4.7",
     "@types/node": "^20.12.12",

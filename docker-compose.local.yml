@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   db:
     image: postgres:16-alpine
@@ -6,8 +8,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: odontopro
-    ports:
-      - "5432:5432"
+    ports: ["5432:5432"]
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -17,20 +18,15 @@ services:
       retries: 20
 
   migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: deps
+    build: { context: ., dockerfile: Dockerfile, target: deps }
     container_name: odontopro-migrate
-    env_file:
-      - .env.local
+    env_file: [.env.local]
     working_dir: /app
     volumes:
       - .:/app
       - /app/node_modules
     depends_on:
-      db:
-        condition: service_healthy
+      db: { condition: service_healthy }
     command: >
       sh -lc '
         echo "[migrate] aplicando migrations...";
@@ -40,30 +36,28 @@ services:
     restart: "no"
 
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: deps
+    build: { context: ., dockerfile: Dockerfile, target: deps }
     container_name: odontopro-web
-    env_file:
-      - .env.local
+    env_file: [.env.local]
     working_dir: /app
     command: >
-      sh -lc "
-        [ -d node_modules ] || npm ci --ignore-scripts;
+      sh -lc '
+        set -e;
+        [ -d node_modules ] || npm ci --ignore-scripts || npm install;
+        node -e "require.resolve(\"autoprefixer\")" >/dev/null 2>&1 || npm i -D autoprefixer@^10 postcss@^8 tailwindcss@^3 tailwindcss-animate@^1;
+        node -e "require.resolve(\"prom-client\")" >/dev/null 2>&1 || npm i prom-client@^15;
+        node -e "require.resolve(\"@opentelemetry/sdk-node\")" >/dev/null 2>&1 || npm i @opentelemetry/sdk-node@^0.55 @opentelemetry/auto-instrumentations-node@^0.53 @opentelemetry/exporter-trace-otlp-http@^0.55 @opentelemetry/resources@^1.25 @opentelemetry/semantic-conventions@^1.25;
         npx prisma generate;
         npm run dev
-      "
+      '
     environment:
       NODE_ENV: development
       PORT: 3000
-    ports:
-      - "3000:3000"
+    ports: ["3000:3000"]
     depends_on:
-      migrate:
-        condition: service_completed_successfully
-      api:
-        condition: service_started
+      migrate: { condition: service_completed_successfully }
+      api: { condition: service_started }
+      otel-collector: { condition: service_started }
     volumes:
       - .:/app
       - /app/node_modules
@@ -71,29 +65,22 @@ services:
     restart: unless-stopped
 
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      target: deps
+    build: { context: ./api, dockerfile: Dockerfile, target: deps }
     container_name: odontopro-api
-    env_file:
-      - .env.local
+    env_file: [.env.local]
     working_dir: /app/api
     command: >
       sh -lc "
-        [ -d node_modules ] || npm ci --ignore-scripts;
+        [ -d node_modules ] || npm ci --ignore-scripts || npm install;
         npx prisma generate --schema=../prisma/schema.prisma;
         npm run start:dev
       "
-    environment:
-      NODE_ENV: development
-    ports:
-      - "4000:4000"
+    environment: { NODE_ENV: development }
+    ports: ["4000:4000"]
     depends_on:
-      db:
-        condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
+      db: { condition: service_healthy }
+      migrate: { condition: service_completed_successfully }
+      otel-collector: { condition: service_started }
     volumes:
       - .:/app
       - /app/api/node_modules
@@ -102,26 +89,72 @@ services:
   adminer:
     image: adminer:4
     container_name: odontopro-adminer
-    ports:
-      - "8080:8080"
+    ports: ["8080:8080"]
     depends_on:
-      db:
-        condition: service_healthy
+      db: { condition: service_healthy }
 
   stripe-listener:
     image: stripe/stripe-cli:latest
     container_name: odontopro-stripe-listener
-    env_file:
-      - .env.local
+    env_file: [.env.local]
     command: >
       sh -lc "
         stripe listen
           --api-key ${STRIPE_SECRET_KEY}
           --forward-to http://web:3000/api/stripe/webhook
       "
-    depends_on:
-      - web
+    depends_on: [web]
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.101.0
+    container_name: odontopro-otel
+    command: ["--config=/etc/otelcol/otel-collector.yaml"]
+    volumes:
+      - ./observability/otel-collector.yaml:/etc/otelcol/otel-collector.yaml:ro
+    ports: ["4317:4317", "4318:4318"]
+    restart: unless-stopped
+
+  tempo:
+    image: grafana/tempo:2.6.1
+    container_name: odontopro-tempo
+    volumes:
+      - tempo-data:/var/tempo
+      - ./observability/tempo.yaml:/etc/tempo.yaml:ro
+    command: ["-config.file=/etc/tempo.yaml"]
+    ports: ["3200:3200"]
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: odontopro-prometheus
+    volumes:
+      - ./observability/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prom-data:/prometheus
+    ports: ["9090:9090"]
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: odontopro-grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./observability/grafana/datasources/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml:ro
+    ports: ["3001:3001"]
+    command:
+      [
+        "--homepath=/usr/share/grafana",
+        "--config=/etc/grafana/grafana.ini",
+        "--packaging=docker",
+        "--http-port=3001",
+      ]
+    restart: unless-stopped
 
 volumes:
   pgdata:
   .next-cache:
+  grafana-data:
+  prom-data:
+  tempo-data:
