@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   db:
     image: postgres:16-alpine
@@ -48,34 +50,12 @@ services:
     env_file:
       - .env.local
     working_dir: /app
-    # 🔧 Garante deps CSS (autoprefixer/postcss/tailwind) + Prisma + dev server
     command: >
-      sh -lc '
-        set -e;
-
-        # 1) Instala node_modules se estiver ausente
-        if [ ! -d node_modules ]; then
-          echo "[web] node_modules ausente — instalando (npm ci)...";
-          npm ci --ignore-scripts || npm install;
-        fi
-
-        # 2) Garante autoprefixer/postcss/tailwind no container
-        node -e "require.resolve(\"autoprefixer\")" >/dev/null 2>&1 || {
-          echo "[web] autoprefixer não encontrado — instalando deps de CSS...";
-          npm i -D autoprefixer@^10 postcss@^8 tailwindcss@^3 tailwindcss-animate@^1;
-        }
-
-        # 3) (Opcional) revalida postcss também
-        node -e "require.resolve(\"postcss\")" >/dev/null 2>&1 || {
-          echo "[web] postcss não encontrado — instalando...";
-          npm i -D postcss@^8;
-        }
-
-        # 4) Gera Prisma Client e sobe o Next em dev
+      sh -lc "
+        [ -d node_modules ] || npm ci --ignore-scripts;
         npx prisma generate;
-        echo "[web] iniciando next dev...";
         npm run dev
-      '
+      "
     environment:
       NODE_ENV: development
       PORT: 3000
@@ -84,10 +64,41 @@ services:
     depends_on:
       migrate:
         condition: service_completed_successfully
+      api:
+        condition: service_started
     volumes:
       - .:/app
       - /app/node_modules
       - .next-cache:/app/.next
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: deps
+    container_name: odontopro-api
+    env_file:
+      - .env.local
+    working_dir: /app/api
+    command: >
+      sh -lc "
+        [ -d node_modules ] || npm ci --ignore-scripts;
+        npx prisma generate --schema=../prisma/schema.prisma;
+        npm run start:dev
+      "
+    environment:
+      NODE_ENV: development
+    ports:
+      - "4000:4000"
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    volumes:
+      - .:/app
+      - /app/api/node_modules
     restart: unless-stopped
 
   adminer:

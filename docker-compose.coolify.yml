@@ -1,43 +1,32 @@
-version: "3.9"
+# ========= APP / NEXT =========
+AUTH_SECRET="defina-um-segredo-forte"
+AUTH_GITHUB_ID=xxxxxxxxxxxxxxxx
+AUTH_GITHUB_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+AUTH_GOOGLE_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+AUTH_GOOGLE_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-services:
-  migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: deps
-    # Use EITHER env_file OR secrets set in Coolify's UI
-    env_file:
-      - .env.coolify
-    command: >
-      sh -lc '
-        echo "[migrate] aguardando DB...";
-        for i in $(seq 1 60); do
-          npx prisma migrate deploy && exit 0;
-          echo "[migrate] DB indisponível, tentando de novo em 5s... ($i/60)";
-          sleep 5;
-        done;
-        echo "[migrate] falhou após várias tentativas";
-        exit 1
-      '
-    restart: "no"
+NEXT_PUBLIC_URL=https://app.seu-dominio.com
+NEXT_PUBLIC_APP_URL=https://app.seu-dominio.com
+NEXT_PUBLIC_API_URL=https://api.seu-dominio.com
 
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: runner
-    # Use EITHER env_file OR secrets set in Coolify's UI
-    env_file:
-      - .env.coolify
-    environment:
-      NODE_ENV: production
-      PORT: 3000
-      HOSTNAME: 0.0.0.0
-    depends_on:
-      migrate:
-        condition: service_completed_successfully
-    # No Coolify o proxy/ingress cuida da rede. Exponha a porta sem mapear.
-    expose:
-      - "3000"
-    restart: unless-stopped
+# ========= DATABASE (Supabase em produção) =========
+DATABASE_URL="postgresql://<USER>:<PASS>@supabase.mondaha.com:6543/postgres?schema=public&pgbouncer=true&connection_limit=1"
+DIRECT_URL="postgresql://<USER>:<PASS>@supabase.mondaha.com:5432/postgres?schema=public"
+
+# ========= STRIPE (live ou test) =========
+NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_live_xxxxxxxxxxxxxxxxx
+STRIPE_SECRET_KEY=sk_live_xxxxxxxxxxxxxxxxx
+STRIPE_SECRET_WEBHOOK_KEY=whsec_xxxxxxxxxxxxxxxxx
+STRIPE_PLAN_BASIC=price_live_xxxxxxxxx
+STRIPE_PLAN_PROFISSIONAL=price_live_xxxxxxxxx
+STRIPE_SUCCESS_URL=https://app.seu-dominio.com/dashboard/plans
+STRIPE_CANCEL_URL=https://app.seu-dominio.com/dashboard/plans
+
+# ========= STORAGE =========
+CLOUDINARY_NAME=dht5d3hmg
+CLOUDINARY_KEY=681918372266766
+CLOUDINARY_SECRET=bP6bLPuVNAU4fBsSX7M0Fe4rwDQ
+
+# ========= API (NestJS) =========
+API_PORT=4000
+API_CORS_ORIGIN=https://app.seu-dominio.com
