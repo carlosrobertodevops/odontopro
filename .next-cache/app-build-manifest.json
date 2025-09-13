@@ -45,6 +45,17 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(panel)/dashboard/plans/page.js"
+    ],
+    "/(public)/clinica/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/(public)/clinica/[id]/page.css",
+      "static/chunks/app/(public)/clinica/[id]/page.js"
+    ],
+    "/api/schedule/get-appointments/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/schedule/get-appointments/route.js"
     ]
   }
 }

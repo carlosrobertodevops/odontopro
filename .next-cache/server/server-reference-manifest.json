@@ -241,6 +241,28 @@
       "layer": {
         "app/(panel)/dashboard/plans/page": "action-browser"
       }
+    },
+    "40102eb71338bbd1a8110f0b2f8e97dfb124381452": {
+      "workers": {
+        "app/(public)/clinica/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_data-access%2Fget-info-schedule.ts%22%2C%5B%5B%2240102eb71338bbd1a8110f0b2f8e97dfb124381452%22%2C%22getInfoSchedule%22%5D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(public)/clinica/[id]/page": "rsc"
+      }
+    },
+    "40af629286f9d94a0b51575f85acb5a6a149e468c9": {
+      "workers": {
+        "app/(public)/clinica/[id]/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(public)%2Fclinica%2F%5Bid%5D%2F_actions%2Fcreate-appointment.ts%22%2C%5B%5B%2240af629286f9d94a0b51575f85acb5a6a149e468c9%22%2C%22createNewAppointment%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(public)/clinica/[id]/page": "action-browser"
+      }
     }
   },
   "edge": {},
