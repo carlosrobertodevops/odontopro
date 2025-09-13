@@ -1,54 +1,132 @@
 services:
-  # 1) Executa migrações Prisma (re-tenta até o DB responder)
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: odontopro
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    expose:
+      - "5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d odontopro"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
   migrate:
     build:
       context: .
       dockerfile: Dockerfile
       target: deps
     env_file:
-      - .env.local.docker
+      - .env.coolify
+    depends_on:
+      db:
+        condition: service_healthy
     command: >
       sh -lc '
-      echo "[migrate] aguardando DB...";
-      for i in $(seq 1 30); do
-        npx prisma migrate deploy && exit 0;
-        echo "[migrate] ainda indisponível, nova tentativa em 3s... ($i/30)";
-        sleep 3;
-      done;
-      echo "[migrate] falhou após várias tentativas"; exit 1'
+        echo "[migrate] aguardando DB...";
+        for i in $(seq 1 60); do
+          npx prisma migrate deploy && exit 0;
+          echo "[migrate] DB indisponível, tentando em 5s... ($i/60)";
+          sleep 5;
+        done;
+        echo "[migrate] falhou após várias tentativas"; exit 1;
+      '
     restart: "no"
 
-  # 2) App Next.js (produção leve, mas rodando local)
   web:
     build:
       context: .
       dockerfile: Dockerfile
       target: runner
     env_file:
-      - .env.local.docker
+      - .env.coolify
     environment:
       NODE_ENV: production
       PORT: 3000
-    ports:
-      - "3000:3000"
+      HOSTNAME: 0.0.0.0
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      api:
+        condition: service_started
+    expose:
+      - "3000"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      target: runner
+    env_file:
+      - .env.coolify
+    environment:
+      NODE_ENV: production
+    expose:
+      - "4000"
     depends_on:
       migrate:
         condition: service_completed_successfully
     restart: unless-stopped
 
-  # 3) (OPCIONAL) Stripe CLI para ouvir eventos e encaminhar para o web
-  #    Use somente se quiser testar webhooks localmente.
-  stripe-listener:
-    image: stripe/stripe-cli:latest
-    env_file:
-      - .env.local.docker
-    command: >
-      sh -lc "
-      stripe listen
-        --api-key ${STRIPE_SECRET_KEY}
-        --forward-to http://web:3000/api/stripe/webhook
-      "
-    depends_on:
-      - web
-    # Dica: ao rodar pela 1ª vez o stripe-cli imprime um WEBHOOK SECRET.
-    # Copie-o e coloque em STRIPE_WEBHOOK_SECRET do seu .env.local.docker.
+volumes:
+  pgdata:
+# services:
+#   # 1) Executa migrações Prisma (re-tenta até o DB responder)
+#   migrate:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       target: deps
+#     env_file:
+#       - .env.local.docker
+#     command: >
+#       sh -lc '
+#       echo "[migrate] aguardando DB...";
+#       for i in $(seq 1 30); do
+#         npx prisma migrate deploy && exit 0;
+#         echo "[migrate] ainda indisponível, nova tentativa em 3s... ($i/30)";
+#         sleep 3;
+#       done;
+#       echo "[migrate] falhou após várias tentativas"; exit 1'
+#     restart: "no"
+
+#   # 2) App Next.js (produção leve, mas rodando local)
+#   web:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       target: runner
+#     env_file:
+#       - .env.local.docker
+#     environment:
+#       NODE_ENV: production
+#       PORT: 3000
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       migrate:
+#         condition: service_completed_successfully
+#     restart: unless-stopped
+
+#   # 3) (OPCIONAL) Stripe CLI para ouvir eventos e encaminhar para o web
+#   #    Use somente se quiser testar webhooks localmente.
+#   stripe-listener:
+#     image: stripe/stripe-cli:latest
+#     env_file:
+#       - .env.local.docker
+#     command: >
+#       sh -lc "
+#       stripe listen
+#         --api-key ${STRIPE_SECRET_KEY}
+#         --forward-to http://web:3000/api/stripe/webhook
+#       "
+#     depends_on:
+#       - web
+#     # Dica: ao rodar pela 1ª vez o stripe-cli imprime um WEBHOOK SECRET.
+#     # Copie-o e coloque em STRIPE_WEBHOOK_SECRET do seu .env.local.docker.
