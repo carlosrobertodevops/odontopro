@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import client, { Registry, collectDefaultMetrics } from "prom-client";
+import * as promClient from "prom-client";
 
 const g: any = global as any;
-const registry: Registry = g.__PROM_REGISTRY__ || new client.Registry();
+const registry: promClient.Registry =
+  g.__PROM_REGISTRY__ || new promClient.Registry();
 if (!g.__PROM_REGISTRY__) {
-  collectDefaultMetrics({ register: registry, prefix: "web_" });
+  promClient.collectDefaultMetrics({ register: registry, prefix: "web_" });
   g.__PROM_REGISTRY__ = registry;
 }
 

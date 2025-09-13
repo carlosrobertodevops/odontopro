@@ -1,9 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import client, {
-  Registry,
-  collectDefaultMetrics,
-  Histogram,
-} from "prom-client";
+import * as promClient from "prom-client";
 
 /**
  * Serviço central de métricas (Prometheus).
@@ -12,23 +8,29 @@ import client, {
  */
 @Injectable()
 export class MetricsService {
-  public readonly registry: Registry;
-  public readonly httpHistogram: Histogram<string>;
+  public readonly registry: promClient.Registry;
+  public readonly httpHistogram: promClient.Histogram<string>;
 
   constructor() {
     const g: any = global as any;
-    this.registry = g.__API_PROM_REGISTRY__ || new client.Registry();
+
+    this.registry = g.__API_PROM_REGISTRY__ || new promClient.Registry();
 
     if (!g.__API_PROM_REGISTRY__) {
-      collectDefaultMetrics({ register: this.registry, prefix: "api_" });
+      promClient.collectDefaultMetrics({
+        register: this.registry,
+        prefix: "api_",
+      });
       g.__API_PROM_REGISTRY__ = this.registry;
     }
 
+    const existing = this.registry.getSingleMetric(
+      "api_http_request_duration_seconds",
+    ) as promClient.Histogram<string> | undefined;
+
     this.httpHistogram =
-      (this.registry.getSingleMetric(
-        "api_http_request_duration_seconds",
-      ) as Histogram<string>) ||
-      new client.Histogram({
+      existing ||
+      new promClient.Histogram({
         name: "api_http_request_duration_seconds",
         help: "API HTTP latency (seconds)",
         labelNames: ["method", "route", "status_code"],
