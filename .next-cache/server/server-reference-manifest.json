@@ -51,6 +51,84 @@
       },
       "filename": "app/(public)/_actions/login.ts",
       "exportedName": "handleRegister"
+    },
+    "401ad8d4fe6ac156b4e3f3ede9d73c1415a23fb277": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%22401ad8d4fe6ac156b4e3f3ede9d73c1415a23fb277%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%2240a43099a1b878d29f4938df190483f68053bcce32%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240f6fb7fa6dcfa197127026ec2c45364dedc83c920%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/_data-access/get-reminders.ts",
+      "exportedName": "getReminders"
+    },
+    "40a43099a1b878d29f4938df190483f68053bcce32": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%22401ad8d4fe6ac156b4e3f3ede9d73c1415a23fb277%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%2240a43099a1b878d29f4938df190483f68053bcce32%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240f6fb7fa6dcfa197127026ec2c45364dedc83c920%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "app/(panel)/dashboard/_data-access/get-times-clinic.ts",
+      "exportedName": "getTimesClinic"
+    },
+    "40f6fb7fa6dcfa197127026ec2c45364dedc83c920": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%2C%5B%7B%22id%22%3A%22401ad8d4fe6ac156b4e3f3ede9d73c1415a23fb277%22%2C%22exportedName%22%3A%22getReminders%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-reminders.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%2C%5B%7B%22id%22%3A%2240a43099a1b878d29f4938df190483f68053bcce32%22%2C%22exportedName%22%3A%22getTimesClinic%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_data-access%2Fget-times-clinic.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Futils%2Fpermissions%2FcheckSubscription.ts%22%2C%5B%7B%22id%22%3A%2240f6fb7fa6dcfa197127026ec2c45364dedc83c920%22%2C%22exportedName%22%3A%22checkSubscription%22%2C%22filename%22%3A%22utils%2Fpermissions%2FcheckSubscription.ts%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "rsc"
+      },
+      "filename": "utils/permissions/checkSubscription.ts",
+      "exportedName": "checkSubscription"
+    },
+    "40b3581b7bb59b9b3bbbcf83c251242cdd2059a56d": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%2240b3581b7bb59b9b3bbbcf83c251242cdd2059a56d%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402f295ef4e3f8ea135bfd470df220502341cc3d6f%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%22408abab4e776126ea79eb418bcce42a7496150509e%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/cancel-appointment.ts",
+      "exportedName": "cancelAppointment"
+    },
+    "402f295ef4e3f8ea135bfd470df220502341cc3d6f": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%2240b3581b7bb59b9b3bbbcf83c251242cdd2059a56d%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402f295ef4e3f8ea135bfd470df220502341cc3d6f%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%22408abab4e776126ea79eb418bcce42a7496150509e%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/delete-reminder.ts",
+      "exportedName": "deleteReminder"
+    },
+    "408abab4e776126ea79eb418bcce42a7496150509e": {
+      "workers": {
+        "app/(panel)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%2C%5B%7B%22id%22%3A%2240b3581b7bb59b9b3bbbcf83c251242cdd2059a56d%22%2C%22exportedName%22%3A%22cancelAppointment%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcancel-appointment.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%2C%5B%7B%22id%22%3A%22402f295ef4e3f8ea135bfd470df220502341cc3d6f%22%2C%22exportedName%22%3A%22deleteReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fdelete-reminder.ts%22%7D%5D%5D%2C%5B%22%2Fapp%2Fsrc%2Fapp%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%2C%5B%7B%22id%22%3A%22408abab4e776126ea79eb418bcce42a7496150509e%22%2C%22exportedName%22%3A%22createReminder%22%2C%22filename%22%3A%22app%2F(panel)%2Fdashboard%2F_actions%2Fcreate-reminder.ts%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/(panel)/dashboard/page": "action-browser"
+      },
+      "filename": "app/(panel)/dashboard/_actions/create-reminder.ts",
+      "exportedName": "createReminder"
     }
   },
   "edge": {},

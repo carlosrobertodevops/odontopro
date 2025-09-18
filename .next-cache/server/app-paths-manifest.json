@@ -1,6 +1,7 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/(public)/page": "app/(public)/page.js",
   "/(public)/clinica/[id]/page": "app/(public)/clinica/[id]/page.js",
-  "/(public)/page": "app/(public)/page.js"
+  "/(panel)/dashboard/page": "app/(panel)/dashboard/page.js"
 }
