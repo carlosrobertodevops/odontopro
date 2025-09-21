@@ -20,9 +20,6 @@ docker compose -f docker-compose.local.yml up -d --build
 # Prometheus: http://localhost:9090
 # Grafana: http://localhost:3001 (admin/admin)
 
-
----
-```
 ---
 ```
 odontopro/
@@ -91,11 +88,5 @@ odontopro/
 ├─ .dockerignore
 └─ .gitignore
 ```
-
----
-```
 ---
 
-
-```
----
